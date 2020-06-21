@@ -40,7 +40,11 @@ if [[ ! -z "$PORT" ]]; then
   PORT_ARG="-p $PORT"
 fi
 
+if [[ ! -z "$PRODUCTION" ]]; then
+  PRODUCTION_ARG="-e production"
+fi
+
 # Start smashing
 echo -e "\n Starting ..."
-exec smashing start $PORT_ARG
+exec smashing start $PORT_ARG $PRODUCTION_ARG
 
